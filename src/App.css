@@ -1,5 +1,107 @@
+.boss{
+  width: 1000px; margin: auto;
+}
+
 .App {
   text-align: center;
+  width: 1000px;
+ 
+  margin: auto;
+  background-image: url('castle.png');
+  background-repeat: no-repeat;
+
+  background-position: bottom; 
+}
+
+.night {
+  -webkit-animation: KEYFRAME-DAYNIGHT 4s forwards;
+  -moz-animation:    KEYFRAME-DAYNIGHT 4s forwards;
+  -o-animation:      KEYFRAME-DAYNIGHT 4s forwards;
+  animation:         KEYFRAME-DAYNIGHT 4s forwards;
+}
+
+@-webkit-keyframes KEYFRAME-DAYNIGHT {
+  0%   { opacity: 0; left:5%;}
+  33%   { opacity: 0; left:5%;}
+  100% { opacity: 1; left:100%;}
+}
+@-moz-keyframes KEYFRAME-DAYNIGHT {
+  0%   { opacity: 0; left:5%;}  
+  33%   { opacity: 0; left:5%;}
+  100% { opacity: 1; left:100%;}
+}
+@-o-keyframes KEYFRAME-DAYNIGHT {
+  0%   { opacity: 0; left:5%;}
+  33%   { opacity: 0; left:5%;}
+  100% { opacity: 1; left:100%;}
+}
+@keyframes KEYFRAME-DAYNIGHT {
+  0%   { opacity: 0; left:5%;}
+  33%   { opacity: 0; left:5%;}
+  100% { opacity: 1; left:100%;}
+}
+
+
+.animateOpacity {
+  -webkit-animation: KEYFRAME-AO 1s forwards;
+  -moz-animation:    KEYFRAME-AO 1s forwards;
+  -o-animation:      KEYFRAME-AO 1s forwards;
+  animation:         KEYFRAME-AO 0.5s forwards;
+}
+
+@-webkit-keyframes KEYFRAME-AO {
+  0%   { opacity: 0;}
+  33%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes KEYFRAME-AO {
+  0%   { opacity: 0;}
+  33%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-o-keyframes KEYFRAME-AO {
+  0%   { opacity: 0;}
+  33%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@keyframes KEYFRAME-AO {
+  0%   { opacity: 0.2;}
+  
+  100% { opacity: 0.83;} 
+}
+
+.help {
+  
+  -webkit-animation: KEYFRAME-HELP 3s forwards;
+  -moz-animation:    KEYFRAME-HELP 3s forwards;
+  -o-animation:      KEYFRAME-HELP 3s forwards;
+  animation:         KEYFRAME-HELP 3s forwards;
+}
+
+@-webkit-keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  50%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  50%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-o-keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  50%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  22%   { opacity: 0;}
+  100% { opacity: 1;} 
+}
+
+
+.text{
+  color: white
 }
 
 .App-logo {
@@ -22,11 +124,58 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+input{
+  height: 34px;
+  padding-left:5px;
+  line-height: 20px;
+  font-size: 2rem;
+  width:130px;
+  background-color: #dfd
+}
+
+p {
+  font-size: 2em;
+}
+
+.help {
+  font-size: 1.1em;
+  opacity:0.7;
+}
+
+
+
+.weatherHeadline{
+  margin-top:2em; padding-top: 1em; padding-bottom: 1em; margin-bottom: 0.5em; 
+  background-color: white;
+}
+
+#inputWeather{text-transform:capitalize; margin-left: 0.3em; }
+
+.humidity {
+  background-image: url('humidity.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  overflow: hidden;
+
+}
+
+.humidityText {
+  opacity: 0.9;
+  font-size: 19px;
+}
+.visibility {
+  background-color: yellow;
+  opacity: 0.5;
+}
+
+
+
+.clock {
+  padding-bottom: 0em;
+  font-size: 4em;
+  color: #FEA00C;
+  line-height: 1em;
 }
