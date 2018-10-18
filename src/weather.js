@@ -34,7 +34,7 @@ class Weather extends Component {
   
   
             return (
-                <div>
+                <div style={{width:156, height:156, overflow:"hidden", position: "absolute", top: 54, left:50}}>
                       <img src={weatherImages} style={{position:"absolute", left: -5, top: topVariable}}></img> 
                 </div>
             )

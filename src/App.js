@@ -9,8 +9,6 @@ import { isoCountries } from './isoconstants';
 
 
 
-
-
 class App extends Component {
 
   constructor(props){
@@ -182,13 +180,11 @@ class App extends Component {
     //response if we don't have a result
     var responseLoading = 
       <div style={{ height:440, position:"relative"}} className="animateOpacity">
-            <div style={{width:156, height:156, overflow:"hidden", position: "absolute", top: 54, left:50}}>
-                  <Weather description="unknown" />
-            </div>
-
-            <div style={{width:156, height:156, overflow:"hidden",  color: "#FEA00C", position: "absolute",top:54, right:50}}> 
-                  < Clock longitude={0} latitude={0} placeSet={false}/>
-            </div>
+            
+            <Weather description="unknown" />
+            
+            < Clock longitude={0} latitude={0} placeSet={false}/>
+            
             <div className="text">
                  {welcomeHelpText}            
             </div>
@@ -202,13 +198,11 @@ class App extends Component {
     var responseResult = 
         <div className="text" style={{height:440, position:"relative"}}>
             
-              <div style={{width:156, height:156, overflow:"hidden", position: "absolute",top:54, left:50}}>
-                  <Weather description={this.state.weather} />  
-              </div>
+              
+              <Weather description={this.state.weather} />  
             
-              <div style={{width:156, height:156, overflow:"hidden",  color: "#FEA00C", position: "absolute",top:54, right:50}}> 
-                  < Clock longitude={this.state.longitude} latitude={this.state.latitude} placeSet={true}/>
-              </div>
+              < Clock longitude={this.state.longitude} latitude={this.state.latitude} placeSet={true}/>
+              
 
               <p>{cityNameCropped}, {isoCountries[this.state.sysCountry]}</p>
               <p>{this.state.weather} | <span style={{color:  'hsl('+this.state.hue+',80%,60%)'}}>{this.state.temp}°C</span></p>

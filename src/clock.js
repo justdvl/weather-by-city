@@ -31,7 +31,7 @@ class Clock extends Component {
   
         if (placeSet) {   
             return (
-                <div>
+                <div style={{width:156, height:156, overflow:"hidden",  color: "#FEA00C", position: "absolute",top:54, right:50}}> 
                         <div class = "clock" >{localTime}  </div>
                         local time
                 </div>
@@ -39,7 +39,7 @@ class Clock extends Component {
         }
         else {
             return (
-                <div>
+                <div style={{width:156, height:156, overflow:"hidden",  color: "#FEA00C", position: "absolute",top:54, right:50}}> 
                         <div class = "clock" > {userTime } </div>
                         Your time
                 </div>
