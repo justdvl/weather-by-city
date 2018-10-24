@@ -61,7 +61,7 @@ class App extends Component {
       cityName: "",
       myName: "",
       hue: 100,
-      
+      name : "",
       humidity:0,
       visibility:0, 
       coordinates : {"longitude" : 0,
@@ -83,6 +83,49 @@ class App extends Component {
     return cityNameCorrected
   }
 
+  tryToUpdateItems(weatherData) {
+    
+    if (weatherData.cod == "200") {
+        if (weatherData.name.length > 1) {
+            console.log("city name: ", this.state.cityName , "weather Data: ", weatherData)
+
+            // need to extract city from city + country string
+            var cityString = this.state.cityName
+            var splitted = cityString.split(",")
+            var city = splitted[0].trim()
+            if (splitted.length>1) {var country = splitted[1].trim()} else {var country = weatherData.sys.country}
+
+            if ((city.toLowerCase()  == weatherData.name.toLowerCase()) && (country.toLocaleLowerCase() == weatherData.sys.country.toLowerCase()) ) {
+              console.log ("Its a MATCH!")
+              this.setState({
+                weatherData,
+                name : weatherData.name
+              })
+            }
+          }
+    }
+      else  if (weatherData.cod == "404") { //404?
+            setTimeout (() => {this.wipeResults(weatherData)}, 1)
+
+      }
+    }
+
+    wipeResults (weatherData) {
+
+      try { 
+          // need to extract city from city + country string
+          var cityString = this.state.cityName
+          var splitted = cityString.split(",")
+          var city = splitted[0].trim()
+          
+
+          if ((city.toLowerCase()  != this.state.name.toLowerCase()) ) {
+            console.log ("Input doesn't correspond to what we show! Deleting results..")
+            this.setState({ weatherData : {'name' : 0}})
+          }
+        }
+        catch(err) {console.log(err)}
+    }
  
 
 
@@ -103,16 +146,10 @@ class App extends Component {
           })
           }
           console.log ("fetching... ")
-          if (items.cod != "200") {
-            currentComponent.setState({weatherData : {'name' : 0}})
-            
-            return;
-          }
-          if (currentComponent.state.cityName == items.name) {
-              currentComponent.setState({
-                weatherData : items,
-              })
-          }
+          
+          currentComponent.tryToUpdateItems(items)
+              
+          
           console.log(items.cod)
           console.log(items)
           
@@ -142,6 +179,7 @@ class App extends Component {
 
     this.fetchData(cityNameCorrected)
     
+    if (event.target.value.length<3) { this.setState({weatherData : {'name' : 0}})} else {this.fetchData(cityNameCorrected)}
   }
 
 
@@ -277,32 +315,37 @@ class App extends Component {
       else {
         return (
           <div className="main">
-              <div className="App">
-                <h1 className="weatherHeadline headline">Weather in 
-                        <input id="inputWeather" type="text" style={{width: 100+15*(Math.max(0,this.state.cityName.length-4))}} onChange={this.setCityName}></ input>
-                    </ h1>    
-          
-                  <div className="responseBody text">
-                    <section>
-                    <div className="animateOpacity responseBody">
-            
-                            <Weather description="unknown" />
-                            
-                            < Clock longitude={0} latitude={0} placeSet={false}/>
-                            
-                            <div className="responseText">
-                                {welcomeHelpText}            
-                            </div>
-                    </div> 
+          <div className="App">
+            <h1 className="weatherHeadline headline">Weather in 
+                    <input id="inputWeather" type="text" style={{width: 100+15*(Math.max(0,this.state.cityName.length-4))}} onChange={this.setCityName}></ input>
+                </ h1>    
+      
+              <div className="responseBody text">
+                <section>
                     
-                    </section>
+                
+                      <div className = "watherTime">
+                          <div className="weatherImage">
+                              <Weather description="unknown"/>
+                          </div>
+                        
+                          <div className="time">
+                              <Clock longitude="0" latitude={0} placeSet={false}/>
+                  
+                          </div>
+                      </div>
                       
+                      <div className="responseText">
+                      
+                      {welcomeHelpText}
+                        
+                      </div>
                      
-                      
-                   
-                  </div>
+                  </section>
+                  
               </div>
           </div>
+      </div>
         )
       }
 

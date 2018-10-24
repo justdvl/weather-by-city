@@ -27,6 +27,7 @@ class Weather extends Component {
             "shower rain" : -2024,
             "unknown" : -1881,
             "thunderstorm" : -4583,
+            "light intensity drizzle" : -2195
           }
       
           var topVariable=weatherDictionary[weather];

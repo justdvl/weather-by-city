@@ -40,7 +40,7 @@ class ResponseModule extends Component {
 
             return (
             <div> 
-                <p>{cityNameCropped}, {isoCountries[weatherData.sys.country]}</p>
+                <p>{weatherData.name}, {isoCountries[weatherData.sys.country]}</p>
                 <p>{weatherData.weather[0].description} | <span style={{color:  'hsl('+hue+',80%,60%)'}}>{temp}°C</span></p>
             </div>
             )

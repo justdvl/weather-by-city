@@ -15,7 +15,7 @@ class Clock extends Component {
         const placeSet = this.props.placeSet;
 
         var tzlookup = require("tz-lookup");
-        console.log(tzlookup(12.7235, 13.6931)); // prints "America/New_York"
+       
         var localTime = new Date().toLocaleTimeString('en-US', { timeZone: tzlookup(latitude,longitude) });
         var userTime = new Date().toLocaleTimeString();
 
@@ -39,8 +39,8 @@ class Clock extends Component {
         }
         else {
             return (
-                <div style={{width:156, height:156, color: "#FEA00C"}} className = "time"> 
-                        <div class = "clock" > {userTime } </div>
+                <div className = "clockContainer" > 
+                        <div className = "clock" >{userTime}  </div>
                         Your time
                 </div>
             )
