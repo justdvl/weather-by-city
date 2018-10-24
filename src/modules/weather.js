@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-var weatherImages = require('./weather.jpg');
 
+var weatherImages = require('../images/weather.jpg');
 
 class Weather extends Component {
 
@@ -30,12 +30,14 @@ class Weather extends Component {
           }
       
           var topVariable=weatherDictionary[weather];
-          if (!weatherDictionary[weather]) {topVariable = -5343};
+          if (!weatherDictionary[weather]) {topVariable = -1881};
   
   
             return (
-                <div style={{width:156, height:156, overflow:"hidden", position: "absolute", top: 54, left:50}}>
-                      <img src={weatherImages} style={{position:"absolute", left: -5, top: topVariable}}></img> 
+                <div className="weatherImageContainer">
+                        <div style={{width:156, height:156, overflow:"hidden", position:"relative", margin: "auto"}} >
+                            <img src={weatherImages} style={{position:"absolute", left: -5, top: topVariable}}></img> 
+                        </div>
                 </div>
             )
     }

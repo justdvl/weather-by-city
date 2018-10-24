@@ -3,22 +3,25 @@
 }
 
 .App {
-  text-align: center;
-  width: 1000px;
+  
  
-  margin: auto;
-  background-image: url('castle.png');
-  background-repeat: no-repeat;
 
-  background-position: bottom; 
 }
 
-.night {
+.footer {
+  position: absolute;
+  bottom:10px;
+  width: 100%;
+}
+
+.animateSunMoon {
+  
   -webkit-animation: KEYFRAME-DAYNIGHT 4s forwards;
   -moz-animation:    KEYFRAME-DAYNIGHT 4s forwards;
   -o-animation:      KEYFRAME-DAYNIGHT 4s forwards;
   animation:         KEYFRAME-DAYNIGHT 4s forwards;
 }
+
 
 @-webkit-keyframes KEYFRAME-DAYNIGHT {
   0%   { opacity: 0; left:5%;}
@@ -147,35 +150,184 @@ p {
 
 
 .weatherHeadline{
-  margin-top:2em; padding-top: 1em; padding-bottom: 1em; margin-bottom: 0.5em; 
+  margin-top:2em; padding-top: 1em; padding-bottom: 1em; 
   background-color: white;
 }
 
 #inputWeather{text-transform:capitalize; margin-left: 0.3em; }
 
+.humidityWrapper {
+  
+  width: 30%;
+  float: left;
+}
 .humidity {
-  background-image: url('humidity.jpg');
+  background-image: url('../images/humidity.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   overflow: hidden;
+  position :absolute;
+  bottom:0px;
+}
 
+.humidityBar {
+  position: absolute;
+  bottom: 10px;
 }
 
 .humidityText {
   opacity: 0.9;
   font-size: 19px;
+  position :absolute;
+  bottom:2px;
 }
-.visibility {
-  background-color: yellow;
-  opacity: 0.5;
+
+.dayNightWrapper {
+  
+  width: 30%;
+  float: right;
+}
+
+.dayNight {
+  float: right;
+  padding:10px;
 }
 
 
+
+
+.clockContainer {
+  width: 200px;
+}
 
 .clock {
   padding-bottom: 0em;
   font-size: 4em;
   color: #FEA00C;
   line-height: 1em;
+  
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 560px;
+  background: black;
+  
+}
+
+.headline, .responseBody {
+  text-align: center;
+
+}
+
+.responseBody {
+  position: relative;
+  background-image: url('../images/castle.png');
+  background-repeat: no-repeat;
+  height: 440px;
+  background-position: bottom; 
+  
+  
+}
+
+.weatherTime {
+  float:left;
+}
+
+.weatherImage 
+ {
+  float:left;
+  width: 25%;
+}
+
+.weatherImageContainer {
+  width: 100%;
+}
+
+.responseText 
+ {
+  float:left;
+  width: 50%;
+  color:white;
+}
+
+.time 
+ {
+  float:right;
+  width: 25%;
+}
+
+.wind {
+  width:100%;
+  text-align: center;
+  margin-top: -2em;
+}
+
+section:before {
+  clear: both;
+}
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 760px) {
+  .weatherImage, .time {
+    width: 30%;
+  }
+  .responseText {
+    width: 40%;
+  }
+}
+
+@media (max-width: 550px) {
+  .weatherTime, .responseText {
+      width: 100%;
+      height: auto;
+  }
+  .weatherImage, .time {
+    width: 50%;
+  }
+
+  .responseBody {
+    height: 540px;
+  }
+  .main {
+    height: 660px;
+  }
+}
+
+@media (max-width: 400px) {
+  .weatherImage, .time, .responseText, .clockContainer, .humidityBar, .dayNightWrapper {
+      width: 100%;
+      height: auto;
+      }
+      
+  .responseBody {
+    height: 670px;
+  }
+  .main {
+    height: 790px;
+  }
+}
+
+@media (max-width: 300px) {
+  .responseBody {
+    height: 800px;
+  }
+  .main {
+    height: 920px;
+  }
+
 }

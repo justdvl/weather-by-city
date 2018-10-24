@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {apiId} from './weatherApiId';
+import {apiId} from './constants/weatherApiId';
 
 ReactDOM.render(<App apiId={apiId}/>, document.getElementById('root'));
 
