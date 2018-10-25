@@ -5,10 +5,7 @@ import React, { Component } from 'react';
 class Clock extends Component {
 
 
-    constructor(props) {
-        super(props)
-    }
-  
+   
     render () {
         const longitude = this.props.longitude;
         const latitude = this.props.latitude;
@@ -23,11 +20,9 @@ class Clock extends Component {
         var arr2 = userTime.split(":");
         arr[2] = arr[2].substr(3);
         arr2[2] = arr2[2].substr(3);
-        //console.log(arr)
+        
         localTime = arr[0] + ":" + arr[1] + " " + arr[2];
         userTime = arr2[0] + ":" + arr2[1] + " " + arr2[2];
-
-        //console.log(localTime);
   
         if (placeSet) {   
             return (

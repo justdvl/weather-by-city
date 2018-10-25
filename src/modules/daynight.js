@@ -5,28 +5,22 @@ import React, { Component } from 'react';
 class DayNight extends Component {
 
 
-    constructor(props) {
-        super(props)
-    }
-  
     
-
-
+  
     render () {
         //Bar to show humidity in bottom left corner
         const humidity = this.props.humidity;
         const sunset = this.props.sunset;
         const sunrise = this.props.sunrise;
 
-
         var humidityBar = 
 
-                <div className="humidityWrapper animateOpacity" >
+            <div className="humidityWrapper animateOpacity" >
                     <div className="humidityBar">
                         <div style={{width: 2*humidity , height:30}} className = "humidity"></div>
                         <div style={{width:200, textAlign:"left", paddingLeft:12}} className="humidityText">humidity: {humidity}%</div>
                     </div>
-         </div>
+             </div>
 
         var timeNow = Math.floor(Date.now()/1000);
 
@@ -43,36 +37,32 @@ class DayNight extends Component {
         }
         if (secondsSunrise>0 && secondsSunset>0) {secondsSunset -= 24*3600}
         if (secondsSunrise>0 && secondsSunset>0) {secondsSunrise -= 24*3600}
-    
-        var windowWidth = window.innerWidth;
-        
-        var percentOfDayNight = secondsSunrise/(-secondsSunset+secondsSunrise) ;
-        
-        var widthOfDayNight = percentOfDayNight * windowWidth;
-        
+              
+        var sunNightDiv
         if (secondsSunrise <= 0) {      //day
-            var sunNightDiv = 
+            sunNightDiv = 
                 <div className = "dayNightWrapper">
                     <div className = "dayNight animateSunMoon"  >
-                        <img src={require('../images/sun.png')} style={{margin:10, width:70, height:70, background:"transparent"}} />
+                        <img src={require('../images/sun.png')} alt = "Sun" style={{margin:10, width:70, height:70, background:"transparent"}} />
                         <div>
                         {(secondsSunset/3600).toString().substring(0, 4)} hod until sunset
                         </div>
                     </div>
                 </div>
         }
-        else        //night
-        {var sunNightDiv =         
-            <div className = "dayNightWrapper">
-                <div className = "dayNight animateSunMoon"  >
-                        <img src={require('../images/night.png')} style={{margin:10, width:70, height:70}} />
+        else {       //night
+            sunNightDiv =         
+                <div className = "dayNightWrapper">
+                    <div className = "dayNight animateSunMoon"  >
+                        <img src={require('../images/night.png')} alt="Night" style={{margin:10, width:70, height:70, background:"transparent"}} />
                         <div>
                         {(secondsSunrise/3600).toString().substring(0, 4)} hod until sunrise
                         </div>
                     </div>
-            </div>
+                </div>
         }
 
+        
             return (
                 <div className = "footer">
                         {humidityBar}

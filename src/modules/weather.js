@@ -6,9 +6,6 @@ var weatherImages = require('../images/weather.jpg');
 class Weather extends Component {
 
 
-    constructor(props) {
-        super(props)
-    }
   
     render () {
         const weather = this.props.description;
@@ -25,7 +22,7 @@ class Weather extends Component {
             "heavy intensity rain" : -3943,
             "scattered clouds" : -3156,
             "shower rain" : -2024,
-            "unknown" : -1881,
+            "unknown" : -1890,
             "thunderstorm" : -4583,
             "light intensity drizzle" : -2195
           }
@@ -33,11 +30,10 @@ class Weather extends Component {
           var topVariable=weatherDictionary[weather];
           if (!weatherDictionary[weather]) {topVariable = -1881};
   
-  
             return (
                 <div className="weatherImageContainer">
                         <div style={{width:156, height:156, overflow:"hidden", position:"relative", margin: "auto"}} >
-                            <img src={weatherImages} style={{position:"absolute", left: -5, top: topVariable}}></img> 
+                            <img src={weatherImages} alt = "Weather visualisation" style={{position:"absolute", left: -5, top: topVariable}}></img> 
                         </div>
                 </div>
             )

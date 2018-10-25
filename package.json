@@ -1,11 +1,12 @@
 {
   "name": "weather-api",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "private": true,
   "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-scripts": "2.0.5",
+    "styled-components": "^4.0.2",
     "tz-lookup": "^6.1.8"
   },
   "scripts": {

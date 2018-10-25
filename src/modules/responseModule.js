@@ -1,14 +1,9 @@
  
 import React, { Component } from 'react';
-import arrowUp from './../images/arrow-up.png';
 import { isoCountries } from './../constants/isoconstants';
 
 class ResponseModule extends Component {
 
-
-    constructor(props) {
-        super(props)
-    }
 
     calculateHue(temp) {
         var hue = 115;
@@ -22,7 +17,7 @@ class ResponseModule extends Component {
     
     render () {
        
-        var cityName = this.props.cityName;
+        //var cityName = this.props.cityName;
        
         var weatherData = this.props.weatherData;
        
@@ -30,12 +25,12 @@ class ResponseModule extends Component {
         
         var hue = this.calculateHue(temp)
 
-
+        /*
         //remove comma and everything behind comma, to not show country code
         var cityNameCropped = cityName.slice(0,1).toUpperCase() + cityName.slice(1, cityName.length)
         var n = cityNameCropped.indexOf(',');
         cityNameCropped = cityNameCropped.substring(0, n != -1 ? n : cityNameCropped.length);
-      
+         */
         
 
             return (
