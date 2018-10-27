@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 
+import {WeatherImageContainer, WeatherImageWrapper, WeatherImg} from './../components/components'
 var weatherImages = require('../images/weather.jpg');
 
 class Weather extends Component {
@@ -24,21 +25,26 @@ class Weather extends Component {
             "shower rain" : -2024,
             "unknown" : -1890,
             "thunderstorm" : -4583,
-            "light intensity drizzle" : -2195
+            "light intensity drizzle" : -2195,
+            "moderate rain" : -2024,
           }
       
           var topVariable=weatherDictionary[weather];
           if (!weatherDictionary[weather]) {topVariable = -1881};
   
             return (
-                <div className="weatherImageContainer">
-                        <div style={{width:156, height:156, overflow:"hidden", position:"relative", margin: "auto"}} >
-                            <img src={weatherImages} alt = "Weather visualisation" style={{position:"absolute", left: -5, top: topVariable}}></img> 
-                        </div>
-                </div>
+                <WeatherImageContainer>
+                        <WeatherImageWrapper>
+                        {/*<img src={weatherImages} alt = "Weather visualisation" style={{position:"absolute", left: -5, top: topVariable}}></img>*/} 
+                        <WeatherImg src={weatherImages} alt="Weather visualisation" topVariable={topVariable}/>
+                        </WeatherImageWrapper>
+                </WeatherImageContainer>
             )
     }
   }
   
+
+
+
 
 export default Weather

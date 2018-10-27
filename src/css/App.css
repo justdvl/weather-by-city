@@ -1,5 +1,5 @@
-.boss{
-  width: 1000px; margin: auto;
+.body {
+  background-color: black;
 }
 
 .App {
@@ -171,7 +171,7 @@ p {
   bottom:0px;
 }
 
-.humidityBar {
+.humidityComponent {
   position: absolute;
   bottom: 10px;
 }
@@ -313,7 +313,7 @@ section:after {
 }
 
 @media (max-width: 400px) {
-  .weatherImage, .time, .responseText, .clockContainer, .humidityBar, .dayNightWrapper {
+  .weatherImage, .time, .responseText, .clockContainer, .humidityComponent, .dayNightWrapper {
       width: 100%;
       height: auto;
       }
@@ -334,4 +334,33 @@ section:after {
     height: 920px;
   }
 
+}
+
+
+@font-face {
+  font-family: 'Kirang Haerang';
+ 
+  font-weight: normal;
+  font-style: normal;
+}
+
+.c {
+ 
+  font-family: Monoton;
+  color : #FEA00C
+}
+
+
+.neon {
+  text-align: center;
+  font-size: 2em;
+  margin: 20px 0 20px 0;
+
+  color: #fff;
+  
+  text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
+}
+
+.neonShadow {
+  text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
 }

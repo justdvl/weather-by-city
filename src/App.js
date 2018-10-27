@@ -5,9 +5,11 @@ import DayNight from './modules/daynight';
 import Wind from './modules/wind';
 import ResponseModule from './modules/responseModule';
 
-import styled, { css } from 'styled-components'
+import { theme1 } from './theme/globalStyle'
+import {ThemeProvider } from 'styled-components'
 
 import './css/App.css';
+import {Body, Input, Title, Main, ResponseBody, WeatherTime, WeatherImage, Time, ResponseText, SectionBlack} from './components/components'
 
 
 
@@ -26,19 +28,9 @@ class App extends Component {
       weatherData : {'name' : 0}
     }
 
-    
-
-
- 
-
-
     this.setCityName = this.setCityName.bind(this)
   }
-
-
-
   
-
   correctCity (city) { // remove comma and whitespace from the end of user's input - to minimalize 404 API response
    
     var cityNameCorrected = city.trim();
@@ -72,7 +64,7 @@ class App extends Component {
             }
           }
     }
-      else  if (weatherData.cod === 404) { //if 404 code, lets see if we need to remove data displayed if they no longer correspond to users query
+      else  if (weatherData.cod == 404) { //if 404 code, lets see if we need to remove data displayed if they no longer correspond to users query
             setTimeout (() => {this.wipeResults()}, 1)
             console.log ("Wiping out weather data")
       }
@@ -205,11 +197,11 @@ class App extends Component {
    
 
     var titleEl = 
-      <h1 className="weatherHeadline headline">Weather in 
+     <Title>Weather in 
                        
-         <Input id="inputWeather" sizeValue={120+18*(Math.max(0,this.state.cityName.length-4))} type="text" onChange={this.setCityName}/>
+         <Input sizeValue={120+18*(Math.max(0,this.state.cityName.length-4))} type="text" onChange={this.setCityName}/>
  
-     </ h1>  
+     </Title>
       
     //width: 100+15*(Math.max(0,this.state.cityName.length-4))
 
@@ -217,80 +209,83 @@ class App extends Component {
     console.log ("name : ", this.state.weatherData.name)
     if (this.state.weatherData.name.length>1) {
         return (
-          <div className="main">
-              <div className="App">
+        <ThemeProvider theme={theme1}>
+            <Body>
+              <Main>
+              
                   
                 {titleEl}
+              
                 
-                  <div className="responseBody text">
+                  <ResponseBody>
                     <section>
                         
                     
-                          <div className = "watherTime">
-                              <div className="weatherImage">
+                          <WeatherTime>
+                              <WeatherImage>
                                   <Weather description={this.state.weatherData.weather[0].description} />
-                              </div>
+                              </WeatherImage>
                             
-                              <div className="time">
+                              <Time>
                                   <Clock longitude={this.state.weatherData.coord.lon} latitude={this.state.weatherData.coord.lat} placeSet={true}/>                  
-                              </div>
-                          </div>
+                              </Time>
+                          </WeatherTime>
                           
-                          <div className="responseText"> 
-                          <ResponseModule   weatherData={this.state.weatherData}  /*cityName={this.state.cityName}*/ />                         
-                          </div>
+                          <ResponseText> 
+                              <ResponseModule   weatherData={this.state.weatherData}  /*cityName={this.state.cityName}*/ />                         
+                          </ResponseText>
                         
                       </section>
 
-                      <Wind weatherData={this.state.weatherData} />
+                        <Wind weatherData={this.state.weatherData} />
+                        
+                      <SectionBlack>
                       <DayNight sunset={this.state.weatherData.sys.sunset} sunrise={this.state.weatherData.sys.sunrise} humidity={this.state.weatherData.main.humidity}/>
-                  </div>
-              </div>
-          </div>
-          )}
+                      </SectionBlack>
+                  </ResponseBody>
+            
+              </Main>
+              </Body>
+        </ThemeProvider>
+        )}
 
     else {
         return (
-          <div className="main">
-          <div className="App">
-           
-               {titleEl}
-             
-      
-              <div className="responseBody text">
+          <ThemeProvider theme={theme1}>
+          <Body>
+          <Main>
+            
+                
+              {titleEl}
+            
+              
+                <ResponseBody>
                 <section>
                     
-                      <div className = "watherTime">
-                          <div className="weatherImage">
+                      <WeatherTime>
+                          <WeatherImage>
                               <Weather description="unknown"/>
-                          </div>
+                          </WeatherImage>
                         
-                          <div className="time">
+                          <Time>
                               <Clock longitude="0" latitude={0} placeSet={false}/>
-                          </div>
-                      </div>
+                          </Time>
+                      </WeatherTime>
                       
-                      <div className="responseText">
+                      <ResponseText>
                       
                       {welcomeHelpText}
                         
-                      </div>
+                      </ResponseText>
 
-                      <div>
-
-                              
-
-                              
-                                
-                             
-
-
-                      </div>
+        
                   </section>
                   
-              </div>
-          </div>
-      </div>
+              </ResponseBody>
+          
+          </Main>
+</Body>
+        </ThemeProvider>
         )
       }
 
@@ -302,17 +297,13 @@ class App extends Component {
 }
 
 
-const Input = styled.input`
 
-font-weight: 400;
-padding : 0.6em 0.3em 0.6em 0.3em;
-margin: 0.1em;
-color: ${props => props.inputColor || "black"};
-background: hsl(109, 65%, 85%);
-height: 1em;
-border-radius: 3px;
-width: ${({ sizeValue }) => sizeValue + 'px'};
-`;
+
+
+
+
+
+
 
 export default App;
 //export default Layout;

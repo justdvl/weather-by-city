@@ -1,5 +1,7 @@
 
 import React, { Component } from 'react';
+import {ClockContainer, ClockComponent} from './../components/components'
+
 
 
 class Clock extends Component {
@@ -26,22 +28,24 @@ class Clock extends Component {
   
         if (placeSet) {   
             return (
-                <div className = "clockContainer" > 
-                        <div className = "clock" >{localTime}  </div>
+                <ClockContainer> 
+                        <ClockComponent> {localTime}  </ClockComponent>
                         local time
-                </div>
+                </ClockContainer>
             )
         }
         else {
             return (
-                <div className = "clockContainer" > 
-                        <div className = "clock" >{userTime}  </div>
+                <ClockContainer> 
+                        <ClockComponent> {userTime}  </ClockComponent>
                         Your time
-                </div>
+                </ClockContainer>
             )
         }
     }
   }
   
+////////////////////////////////
+
 
 export default Clock

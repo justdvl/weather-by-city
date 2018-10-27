@@ -1,6 +1,9 @@
  
 import React, { Component } from 'react';
 import arrowUp from './../images/arrow-up.png';
+import {WindWrapper, WindDirectionImg} from './../components/components'
+
+
 
 class Wind extends Component {
 
@@ -29,9 +32,11 @@ class Wind extends Component {
         var windDirection = this.updateWindDirection(weatherData.wind.deg)
 
             return (
-            <div className="wind"> 
-                <p>{windDirection} wind <img alt = "wind direction" style={{marginLeft:5, paddingBottom:0, marginRight:5, width:22, transform: "rotate("+weatherData.wind.deg+"deg)"}} src={arrowUp}></img> | {weatherData.wind.speed} m/s</p>
-            </div>
+            <WindWrapper> 
+                <p className="neon"> {windDirection} wind 
+                <WindDirectionImg alt = "wind direction" deg = {weatherData.wind.deg} src={arrowUp} /> 
+                | {weatherData.wind.speed} m/s</p>
+            </WindWrapper>
             )         
     }
   }
