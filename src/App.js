@@ -159,7 +159,7 @@ class App extends Component {
     //display error if API doesnt work
     var errorApi = <div></div>
 
-    if (this.state.responseCode === 404 || this.state.responseCode === 200 ) {}
+    if (this.state.responseCode == 404 || this.state.responseCode == 200 ) {}
     else {
         errorApi = 
             <div>
