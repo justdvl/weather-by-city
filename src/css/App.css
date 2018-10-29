@@ -1,18 +1,72 @@
-.body {
-  background-color: black;
+
+.white{
+  color: white
 }
 
-.App {
-  
+input{
+  height: 34px;
+  padding-left:5px;
+  line-height: 20px;
+  font-size: 2rem;
+  width:130px;
+  background-color: #dfd
+}
+
+p {
+  font-size: 2em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.c {
  
-
+  font-family: Monoton;
+  color : #FEA00C
 }
 
-.footer {
-  position: absolute;
-  bottom:10px;
-  width: 100%;
+.neon {
+  text-align: center;
+  font-size: 2em;
+  margin: 20px 0 20px 0;
+  text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
 }
+
+.neonShadow {
+  text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
+}
+
+.help {
+  font-size: 1.1em;
+  opacity:0.7;
+  -webkit-animation: KEYFRAME-HELP 3s forwards;
+  -moz-animation:    KEYFRAME-HELP 3s forwards;
+  -o-animation:      KEYFRAME-HELP 3s forwards;
+  animation:         KEYFRAME-HELP 3s forwards;
+}
+
+@-webkit-keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  50%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  50%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-o-keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  50%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@keyframes KEYFRAME-HELP {
+  0%   { opacity: 0;}
+  22%   { opacity: 0;}
+  100% { opacity: 1;} 
+}
+
 
 .animateSunMoon {
   
@@ -21,7 +75,6 @@
   -o-animation:      KEYFRAME-DAYNIGHT 4s forwards;
   animation:         KEYFRAME-DAYNIGHT 4s forwards;
 }
-
 
 @-webkit-keyframes KEYFRAME-DAYNIGHT {
   0%   { opacity: 0; left:5%;}
@@ -71,500 +124,4 @@
   0%   { opacity: 0.2;}
   
   100% { opacity: 0.83;} 
-}
-
-.help {
-  
-  -webkit-animation: KEYFRAME-HELP 3s forwards;
-  -moz-animation:    KEYFRAME-HELP 3s forwards;
-  -o-animation:      KEYFRAME-HELP 3s forwards;
-  animation:         KEYFRAME-HELP 3s forwards;
-}
-
-@-webkit-keyframes KEYFRAME-HELP {
-  0%   { opacity: 0;}
-  50%   { opacity: 0;}
-  100% { opacity: 1;}
-}
-@-moz-keyframes KEYFRAME-HELP {
-  0%   { opacity: 0;}
-  50%   { opacity: 0;}
-  100% { opacity: 1;}
-}
-@-o-keyframes KEYFRAME-HELP {
-  0%   { opacity: 0;}
-  50%   { opacity: 0;}
-  100% { opacity: 1;}
-}
-@keyframes KEYFRAME-HELP {
-  0%   { opacity: 0;}
-  22%   { opacity: 0;}
-  100% { opacity: 1;} 
-}
-
-
-.white{
-  color: white
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-
-
-input{
-  height: 34px;
-  padding-left:5px;
-  line-height: 20px;
-  font-size: 2rem;
-  width:130px;
-  background-color: #dfd
-}
-
-p {
-  font-size: 2em;
-}
-
-.help {
-  font-size: 1.1em;
-  opacity:0.7;
-}
-
-
-
-.weatherHeadline{
-  margin-top:2em; padding-top: 1em; padding-bottom: 1em; 
-  background-color: white;
-}
-
-#inputWeather{text-transform:capitalize; margin-left: 0.3em; }
-
-.humidityWrapper {
-  
-  width: 30%;
-  float: left;
-}
-.humidity {
-  background-image: url('../images/humidity.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  overflow: hidden;
-  position :absolute;
-  bottom:0px;
-}
-
-.humidityComponent {
-  position: absolute;
-  bottom: 10px;
-}
-
-.humidityText {
-  opacity: 0.9;
-  font-size: 19px;
-  position :absolute;
-  bottom:2px;
-}
-
-.dayNightWrapper {
-  
-  width: 30%;
-  float: right;
-}
-
-.dayNight {
-  float: right;
-  padding:10px;
-}
-
-
-
-
-.clockContainer {
-  width: 200px;
-  padding-top:22px;
-}
-
-.clock {
-  padding-bottom: 0em;
-  font-size: 4em;
-  color: #FEA00C;
-  line-height: 1em;
-  
-}
-
-
-
-
-* {
-  box-sizing: border-box;
-}
-
-
-.main {
-  max-width: 1000px;
-  margin: 0 auto;
-  height: 560px;
-  background: black;
-  
-}
-
-.headline, .responseBody {
-  text-align: center;
-
-}
-
-.responseBody {
-  position: relative;
-  background-repeat: no-repeat;
-  height: 440px;
-  background-position: bottom; 
-  
-  
-}
-
-.weatherTime {
-  float:left;
-}
-
-.weatherImage 
- {
-  float:left;
-  width: 25%;
-}
-
-.weatherImageContainer {
-  width: 100%;
-}
-
-.responseText 
- {
-  float:left;
-  width: 50%;
-  color:white;
-}
-
-.time 
- {
-  float:right;
-  width: 25%;
-}
-
-.wind {
-  width:100%;
-  text-align: center;
-  margin-top: -2em;
-}
-
-section:before {
-  clear: both;
-}
-section:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media (max-width: 760px) {
-  .weatherImage, .time {
-    width: 30%;
-  }
-  .responseText {
-    width: 40%;
-  }
- 
-}
-
-@media (max-width: 550px) {
-  .weatherTime, .responseText {
-      width: 100%;
-      height: auto;
-  }
-  .weatherImage, .time {
-    width: 50%;
-  }
-
-  .responseBody {
-    height: 540px;
-  }
-  .main {
-    height: 660px;
-  }
-}
-
-@media (max-width: 400px) {
-  .weatherImage, .time, .responseText, .clockContainer, .humidityComponent, .dayNightWrapper {
-      width: 100%;
-      height: auto;
-      }
-      
-  .responseBody {
-    height: 670px;
-  }
-  .main {
-    height: 790px;
-  }
-}
-
-@media (max-width: 300px) {
-  .responseBody {
-    height: 800px;
-  }
-  .main {
-    height: 920px;
-  }
-
-}
-
-
-@font-face {
-  font-family: 'Kirang Haerang';
- 
-  font-weight: normal;
-  font-style: normal;
-}
-
-.c {
- 
-  font-family: Monoton;
-  color : #FEA00C
-}
-
-
-.neon {
-  text-align: center;
-  font-size: 2em;
-  margin: 20px 0 20px 0;
-  text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
-}
-
-.neonShadow {
-  text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
-}
-
-
-
-
-/*///// layout //////*/
-
-main {
-  flex: 1 0 auto; /*fill the available space*/
-  display: flex; /*I just included this! - now a flex container with flex items: sidebar & main content section*/
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-
-  background-repeat: no-repeat;
-  background-position: bottom;
-  align-content: flex-start;
-}
-
-header {
-  flex: 0 0 185px;
-  align-self: center;
-  
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-
-.mainel1 {
-  margin-top: 30px;
-  align-self: flex-start;
-  flex: 10 0 190px;
-  order: 1;
-}
-
-.mainel2 {
-  margin-top: 30px;
-  padding-right: 1em;
-  align-self: flex-start;
-  flex: 5 0 190px;
-  order : 3;
-  
-}
-
-.mainel3 {
-  margin-top: 22px;
-  align-self: flex-start;
-  flex: 100 0 300px;
-  order: 2;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-
-}
-
-
-@media (max-width: 679px) {
-  .mainel1 {flex: 10 0 190px;}
-.mainel2 {order : 2;  flex: 10 0 190px;}
-.mainel3 {order : 3;  padding-left: 5%; padding-right: 5%;}
-}
-
-
-
-
-@media (max-width: 379px) {
-  .mainel1 {flex: 0 0 100%; order: 1;}
-  .mainel2 {flex: 0 0 100%; order: 2; margin-top: 2px;}
-  .mainel3 {flex: 0 0 100%; order: 3; margin-top: 10px;}
-  }
-
-
-#headline {
-  font-size: 2em;
-}
-
-html,
-  body, #root, #root2 {
-    height: 100%; /*setting this explicitly is important*/
-  }
-body, #root, #root2  {
-    display: flex; /*flex superpowers activated! */
-    flex-direction: column; /*Stack the flex-items (main and footer elements) vertically NOT horizontally*/
-  }
-
-  #root2 {
-    width: 1000px;
-    margin: 0 auto;
-    
-  }
-  
-  @media (max-width: 999px) {
-    #root2 {
-      width: 100%;
-      margin: 0 auto;
-    }
-  }
-
-
-  body {
-    
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    margin: 0;
-    font-family: Lato, sans-serif;
-    color: #222;
-    font-size: 0.9em;
-  }
-  footer {
-    flex: 0 0 170px;
-    padding: 10px;
-    color: #fff;
-    
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 3em;
-    flex-wrap: wrap;
-    
-  }
-
-  #bcg {
-    background-color: black;
-    background-image: url(../images/castle.png);
-    background-position: bottom;
-    background-repeat: no-repeat;
-  }
-
-  @media (max-width: 399px) {
-    footer {    flex: 1 0 200px;  margin-bottom:1em;}
-   .f2{ margin: auto; padding-bottom: 1.2em; margin-top: 15px;}
-    .f1 {margin-top: 2em;}
-  }
-
-  .f1 {
-    display: flex;
-    flex: 0 0 190px;
-  }
-
-  .f2 {
-    display: flex;
-    flex: 0 0 190px;
-    
-  }
-
-  #nightWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 1.2em;
-    justify-content: space-around;
-  }
-  .nightImg {align-self: center;}
-  .nightText {align-self: center;}
-
- aside {
-   
-    flex: 0 0 40px;
-    display: flex; /*Now a flex-container too*/
-  
-    
-    flex-direction: column; /*stack icons vertically*/
-  
-    
-    /*since direction is changed, this works on the vertical direction*/
-    justify-content: space-around;   
-
-    
-    align-items: center; /*direction is changed! This affects the horizontal direction. Places Icons in the center*/
-  
-   
-     background-color: #f2f2f2; /*make me pretty*/
-  }
-     aside i.fa {
-        font-size: 0.9em;  /*font size for the icons*/
-  }
-
-
-  .content {
-    display: flex;
-    flex: 1 1 auto; /*this makes sure the section grows to fill the entire available space and shrinks too*/
-    flex-direction: column;
-}
-
-
-.music-head {
-  flex: 0 0 280px; /*Same memo, don't grow or shrink - stay at 280px*/
- display: flex;  
- padding: 40px;
- background-color: #4e4e4e;
-}
-.music-list {
-   display: flex;
-   flex-direction: column;
-   flex: 1 0 auto;
-   list-style-type: none;
-   padding: 5px 10px 0px;
-}
-
-li {
-  display: flex; /*Paragraphs are now displayed on one line*/
-  padding: 0 20px; /*Some breahing space*/
-  min-height: 50px;
-}
-li p {
-  flex: 0 0 25%; /*This is the sweet sauce*/
 }

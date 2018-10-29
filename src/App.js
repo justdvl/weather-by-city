@@ -10,51 +10,10 @@ import { theme1 } from './theme/globalStyle'
 import {ThemeProvider } from 'styled-components'
 
 import './css/App.css';
-import {WelcomeHome, Body, Input, Title, Main, ResponseBody, WeatherTime, WeatherImage, Time, ResponseText, SectionBlack} from './components/components'
+import {WelcomeHome, Page, BackgroundHolder, Header, Footer, Monday, Input, Title, Main, WeatherImageContainer, ResponseWrapper} from './components/components'
 
 
 
-class Layout extends Component {
-    constructor (props) {
-      super (props);
-    }
-
-
-    render () {
-      return (
-  <div id="root2">
-    
-    <header>
-      <div id="headline">
-      Weather in <input type="text"></input>
-      </div>
-     
-    </header>
-    
-    <main>
-      <div class="mainel1">weather</div>
-      
-      <div class="mainel2">time</div>
-      <div class="mainel3">results</div>
-
-                
-    </main>
-
-    <footer>
-        <div className="f1">
-            <Humidity />
-        </div> 
-
-        <div className="f2">  
-            <DayNight /> 
-        </div>
-
-    </footer>
-
-  </div>
-      )
-    }
-}
 
 
 
@@ -133,7 +92,6 @@ class App extends Component {
     }
  
 
-
   fetchData (cityNameCorrected) {
     let currentComponent = this; 
     const apiId = this.props.apiId;
@@ -185,20 +143,9 @@ class App extends Component {
   };
 
 
-      
-
-
-
-
   render() {
       
-         
-   
-
-
-
-
-    //display error if API doesnt work
+     //display error if API doesnt work
     var errorApi = <div></div>
 
     if (this.state.responseCode == 404 || this.state.responseCode == 200 ) {}
@@ -245,112 +192,95 @@ class App extends Component {
  
      </Title>
       
-    //width: 100+15*(Math.max(0,this.state.cityName.length-4))
-
-
-    console.log ("name : ", this.state.weatherData.name)
     if (this.state.weatherData.name.length>1) {
+
         return (
-        <ThemeProvider theme={theme1}>
-               <div id="root2">
+<ThemeProvider theme={theme1}>
+        
+  <Page>
     
-    <header>
-    {titleEl}
+    <Header>
+      {titleEl}
+    </Header>
+
+    <BackgroundHolder>
+        <Main>
+            <ResponseWrapper>
+                <ResponseModule   weatherData={this.state.weatherData} />
+                <Wind weatherData={this.state.weatherData} />
+
+             </ResponseWrapper>
      
-    </header>
-    <div id="bcg">
-    <main>
-      <div class="mainel3">
+     
+        <WeatherImageContainer>
+            <Weather description={this.state.weatherData.weather[0].description} />                     
+        </WeatherImageContainer>
 
-  <ResponseModule   weatherData={this.state.weatherData}  /*cityName={this.state.cityName}*/ />                         
-  <Wind weatherData={this.state.weatherData} />
-
-      </div>
-      <div class="mainel1"> 
-
-  <Weather description={this.state.weatherData.weather[0].description} />
-                         
-  </div>
-      <div class="mainel2">
+     
         <Clock longitude={this.state.weatherData.coord.lon} latitude={this.state.weatherData.coord.lat} placeSet={true}/>                  
                              
-      </div>
 
-  </main>
+        </Main>
 
 
-    <footer>
-        <div className="f1">
+        <Footer>
+      
             <Humidity humidity={this.state.weatherData.main.humidity}/>
-        </div> 
+  
+            <Monday>  
+            <DayNight sunset={this.state.weatherData.sys.sunset} sunrise={this.state.weatherData.sys.sunrise} />
+            </Monday>
 
-        <div className="f2">  
-        <DayNight sunset={this.state.weatherData.sys.sunset} sunrise={this.state.weatherData.sys.sunrise} />
-        </div>
+        </Footer>
 
-    </footer>
-</div>
-</div>
-    </ThemeProvider>
+
+    </BackgroundHolder>
+  </Page>
+</ThemeProvider>
 
 )}
 
     else {
         return (
-          <ThemeProvider theme={theme1}>
-         <div id="root2">
-    
-    <header>
-    {titleEl}
-     
-    </header>
-    
-    <main>
-      <div class="mainel3 white">
-      
-             {welcomeHelpText}       
-      
-      </div>
-      <div class="mainel1">
-           
-              <Weather description={"unknown"} />
+<ThemeProvider theme={theme1}>
         
-      </div>
-      <div class="mainel2">
-          
-              <Clock longitude={0} latitude={0} placeSet={false}/>                  
-          
-          
-      </div>
+  <Page>
+    
+    <Header>
+      {titleEl}
+     </Header>
+    
+    <BackgroundHolder>
+        <Main>
+            <ResponseWrapper>
+              {welcomeHelpText}       
+            </ResponseWrapper>
+
+
+            <WeatherImageContainer>
+              <Weather description={"unknown"} />
+            
+            </WeatherImageContainer>
+        
+              
+            <Clock longitude={0} latitude={0} placeSet={false}/>                  
       
+        </Main>
 
-                
-    </main>
-    <footer>
+
+    </BackgroundHolder>
+   
+   
+    <Footer>
        
+    </Footer>
 
-    </footer>
-
-  </div>
-        </ThemeProvider>
+  </Page>
+</ThemeProvider>
         )
       }
-
-
-      
-
-
   }
 }
 
-
-
-
-
-
-
-
-
-
 export default App;
-//export default Layout;
+

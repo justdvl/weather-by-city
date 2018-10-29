@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 
 
-import {HumidityWrapper, HumidityComponent, HumidityText, HumidityGraph} from './../components/components'
+import {HumidityComponent, HumidityText, HumidityGraph} from './../components/components'
 
 
 class Humidity extends Component {

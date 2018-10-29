@@ -3,9 +3,9 @@ import { css} from 'styled-components'
 
 //responsiveness
 const sizes = {
-    big: 760,
-    medium: 550,
-    small: 400,
+    big: 999,
+    medium: 679,
+    small: 399,
     tiny: 200,
     }
 // iterate through the sizes and create a media template
