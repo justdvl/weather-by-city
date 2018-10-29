@@ -23,8 +23,8 @@ class ResponseModule extends Component {
 
             return (
             <div> 
-                <p style={{fontSize: 3 + "em", marginTop: 0.5 + "em", marginBottom: 0.5 + "em", paddingLeft: 0.3 + "em", paddingRight: 0.3 + "em"}} className="c">{weatherData.name}, {isoCountries[weatherData.sys.country]}</p>
-                <p style={{marginBottom: 0.1 + "em"}} className="neon">{weatherData.weather[0].description} | <span style={{fontWeight: 900, color:  'hsl('+hue+',80%,60%)'}}>{temp}°C</span></p>
+                <p style={{fontSize: 3 + "em", marginTop: 0.5 + "em", marginBottom: 0.5 + "em", paddingLeft: 0.3 + "em", paddingRight: 0.3 + "em"}} className="c neon">{weatherData.name}, {isoCountries[weatherData.sys.country]}</p>
+                <p style={{marginBottom: 0.1 + "em"}} className="neon white">{weatherData.weather[0].description} | <span style={{fontWeight: 900, color:  'hsl('+hue+',80%,60%)'}}>{temp}°C</span></p>
             </div>
             )
                 

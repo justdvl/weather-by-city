@@ -39,39 +39,31 @@ class DayNight extends Component {
         var sunNightDiv
         if (secondsSunrise <= 0) {      //day
             sunNightDiv = 
-                <DayNightWrapper>
-                    <DayNightComponent>
+                <div>
                         <img src={require('../images/sun.png')} alt = "Sun" style={{margin:10, width:70, height:70, background:"transparent"}} />
                         <div>
                         {(secondsSunset/3600).toString().substring(0, 4)} hod until sunset
                         </div>
-                    </DayNightComponent>
-                </DayNightWrapper>
+                </div>
         }
         else {       //night
             sunNightDiv =         
-                <DayNightWrapper>
-                    <DayNightComponent>
+                <div id = "nightWrapper">
+                    <div id="nightImg">
                         <img src={require('../images/night.png')} alt="Night" style={{margin:10, width:70, height:70, background:"transparent"}} />
-                        <div>
+                    </div>   
+                    
+                    <div if="nightText">
                         {(secondsSunrise/3600).toString().substring(0, 4)} hod until sunrise
-                        </div>
-                    </DayNightComponent>
-                </DayNightWrapper>
+                    </div>
+                    
+                </div>
         }
 
         
             return (
                 <Footer>
-                        <HumidityWrapper>
-                                <HumidityComponent>
-                                    <HumidityGraph humidityWidth={2*humidity}>
-                                    </HumidityGraph>
-                                    <HumidityText className="neonShadow" id ="humidityText">
-                                        humidity: {humidity}% 
-                                    </HumidityText>
-                                </HumidityComponent>
-                        </HumidityWrapper>
+                        
                         {sunNightDiv}
                 </Footer>
             )

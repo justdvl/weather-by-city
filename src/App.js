@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Clock from './modules/clock';
 import Weather from './modules/weather';
 import DayNight from './modules/daynight';
+import Humidity from './modules/humidity';
 import Wind from './modules/wind';
 import ResponseModule from './modules/responseModule';
 
@@ -9,10 +10,51 @@ import { theme1 } from './theme/globalStyle'
 import {ThemeProvider } from 'styled-components'
 
 import './css/App.css';
-import {Body, Input, Title, Main, ResponseBody, WeatherTime, WeatherImage, Time, ResponseText, SectionBlack} from './components/components'
+import {WelcomeHome, Body, Input, Title, Main, ResponseBody, WeatherTime, WeatherImage, Time, ResponseText, SectionBlack} from './components/components'
 
 
 
+class Layout extends Component {
+    constructor (props) {
+      super (props);
+    }
+
+
+    render () {
+      return (
+  <div id="root2">
+    
+    <header>
+      <div id="headline">
+      Weather in <input type="text"></input>
+      </div>
+     
+    </header>
+    
+    <main>
+      <div class="mainel1">weather</div>
+      
+      <div class="mainel2">time</div>
+      <div class="mainel3">results</div>
+
+                
+    </main>
+
+    <footer>
+        <div className="f1">
+            <Humidity />
+        </div> 
+
+        <div className="f2">  
+            <DayNight /> 
+        </div>
+
+    </footer>
+
+  </div>
+      )
+    }
+}
 
 
 
@@ -83,7 +125,7 @@ class App extends Component {
           var city = splitted[0].trim()
           
           if ((city.toLowerCase()  != this.state.name.toLowerCase()) ) {
-            console.log ("Input doesn't correspond to what we show! Deleting results..")
+            console.log ("Input does not correspond to what we show! Deleting results..")
             this.setState({ weatherData : {'name' : 0}})
           }
         }
@@ -185,14 +227,14 @@ class App extends Component {
     }
     else {
       welcomeHelpText = 
-          <div>
+          <WelcomeHome>
               <p>Not sure... Specify closer</p>
-              <p className="help" >If you can't find your city, use <span style={{color:"#cfc"}}>comma + country code</span> to specify the city.</p>
+              <p className="help" >If you can not find your city, use <span style={{color:"#cfc"}}>comma + country code</span> to specify the city.</p>
               <p className="help" >Example: <i>Ibiza<span style={{color:"#cfc"}}>, Es </span></i> will find Ibiza in Spain</p>
               
               {errorApi}
 
-          </div>
+          </WelcomeHome>
     }
    
 
@@ -210,81 +252,86 @@ class App extends Component {
     if (this.state.weatherData.name.length>1) {
         return (
         <ThemeProvider theme={theme1}>
-            <Body>
-              <Main>
-              
-                  
-                {titleEl}
-              
-                
-                  <ResponseBody>
-                    <section>
-                        
-                    
-                          <WeatherTime>
-                              <WeatherImage>
-                                  <Weather description={this.state.weatherData.weather[0].description} />
-                              </WeatherImage>
-                            
-                              <Time>
-                                  <Clock longitude={this.state.weatherData.coord.lon} latitude={this.state.weatherData.coord.lat} placeSet={true}/>                  
-                              </Time>
-                          </WeatherTime>
-                          
-                          <ResponseText> 
-                              <ResponseModule   weatherData={this.state.weatherData}  /*cityName={this.state.cityName}*/ />                         
-                          </ResponseText>
-                        
-                      </section>
+               <div id="root2">
+    
+    <header>
+    {titleEl}
+     
+    </header>
+    <div id="bcg">
+    <main>
+      <div class="mainel3">
 
-                        <Wind weatherData={this.state.weatherData} />
-                        
-                      <SectionBlack>
-                      <DayNight sunset={this.state.weatherData.sys.sunset} sunrise={this.state.weatherData.sys.sunrise} humidity={this.state.weatherData.main.humidity}/>
-                      </SectionBlack>
-                  </ResponseBody>
-            
-              </Main>
-              </Body>
-        </ThemeProvider>
-        )}
+  <ResponseModule   weatherData={this.state.weatherData}  /*cityName={this.state.cityName}*/ />                         
+  <Wind weatherData={this.state.weatherData} />
+
+      </div>
+      <div class="mainel1"> 
+
+  <Weather description={this.state.weatherData.weather[0].description} />
+                         
+  </div>
+      <div class="mainel2">
+        <Clock longitude={this.state.weatherData.coord.lon} latitude={this.state.weatherData.coord.lat} placeSet={true}/>                  
+                             
+      </div>
+
+  </main>
+
+
+    <footer>
+        <div className="f1">
+            <Humidity humidity={this.state.weatherData.main.humidity}/>
+        </div> 
+
+        <div className="f2">  
+        <DayNight sunset={this.state.weatherData.sys.sunset} sunrise={this.state.weatherData.sys.sunrise} />
+        </div>
+
+    </footer>
+</div>
+</div>
+    </ThemeProvider>
+
+)}
 
     else {
         return (
           <ThemeProvider theme={theme1}>
-          <Body>
-          <Main>
-            
-                
-              {titleEl}
-            
-              
-                <ResponseBody>
-                <section>
-                    
-                      <WeatherTime>
-                          <WeatherImage>
-                              <Weather description="unknown"/>
-                          </WeatherImage>
-                        
-                          <Time>
-                              <Clock longitude="0" latitude={0} placeSet={false}/>
-                          </Time>
-                      </WeatherTime>
-                      
-                      <ResponseText>
-                      
-                      {welcomeHelpText}
-                        
-                      </ResponseText>
-
+         <div id="root2">
+    
+    <header>
+    {titleEl}
+     
+    </header>
+    
+    <main>
+      <div class="mainel3 white">
+      
+             {welcomeHelpText}       
+      
+      </div>
+      <div class="mainel1">
+           
+              <Weather description={"unknown"} />
         
-                  </section>
-                  
-              </ResponseBody>
+      </div>
+      <div class="mainel2">
           
-          </Main>
-</Body>
+              <Clock longitude={0} latitude={0} placeSet={false}/>                  
+          
+          
+      </div>
+      
+
+                
+    </main>
+    <footer>
+       
+
+    </footer>
+
+  </div>
         </ThemeProvider>
         )
       }

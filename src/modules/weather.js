@@ -27,6 +27,7 @@ class Weather extends Component {
             "thunderstorm" : -4583,
             "light intensity drizzle" : -2195,
             "moderate rain" : -2024,
+            "smoke" : -1732,
           }
       
           var topVariable=weatherDictionary[weather];

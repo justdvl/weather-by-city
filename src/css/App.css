@@ -103,7 +103,7 @@
 }
 
 
-.text{
+.white{
   color: white
 }
 
@@ -233,7 +233,6 @@ p {
 
 .responseBody {
   position: relative;
-  background-image: url('../images/castle.png');
   background-repeat: no-repeat;
   height: 440px;
   background-position: bottom; 
@@ -290,9 +289,7 @@ section:after {
   .responseText {
     width: 40%;
   }
-  .weatherHeadline{
-    margin-top: 0em;
-  }
+ 
 }
 
 @media (max-width: 550px) {
@@ -355,12 +352,219 @@ section:after {
   text-align: center;
   font-size: 2em;
   margin: 20px 0 20px 0;
-
-  color: #fff;
-  
   text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
 }
 
 .neonShadow {
   text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111
+}
+
+
+
+
+/*///// layout //////*/
+
+main {
+  flex: 1 0 auto; /*fill the available space*/
+  display: flex; /*I just included this! - now a flex container with flex items: sidebar & main content section*/
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+  background-repeat: no-repeat;
+  background-position: bottom;
+  align-content: flex-start;
+}
+
+header {
+  flex: 0 0 185px;
+  align-self: center;
+  
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.mainel1 {
+  margin-top: 30px;
+  align-self: flex-start;
+  flex: 10 0 190px;
+  order: 1;
+}
+
+.mainel2 {
+  margin-top: 30px;
+  padding-right: 1em;
+  align-self: flex-start;
+  flex: 5 0 190px;
+  order : 3;
+  
+}
+
+.mainel3 {
+  margin-top: 22px;
+  align-self: flex-start;
+  flex: 100 0 300px;
+  order: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+
+@media (max-width: 679px) {
+  .mainel1 {flex: 10 0 190px;}
+.mainel2 {order : 2;  flex: 10 0 190px;}
+.mainel3 {order : 3;  padding-left: 5%; padding-right: 5%;}
+}
+
+
+
+
+@media (max-width: 379px) {
+  .mainel1 {flex: 0 0 100%; order: 1;}
+  .mainel2 {flex: 0 0 100%; order: 2; margin-top: 2px;}
+  .mainel3 {flex: 0 0 100%; order: 3; margin-top: 10px;}
+  }
+
+
+#headline {
+  font-size: 2em;
+}
+
+html,
+  body, #root, #root2 {
+    height: 100%; /*setting this explicitly is important*/
+  }
+body, #root, #root2  {
+    display: flex; /*flex superpowers activated! */
+    flex-direction: column; /*Stack the flex-items (main and footer elements) vertically NOT horizontally*/
+  }
+
+  #root2 {
+    width: 1000px;
+    margin: 0 auto;
+    
+  }
+  
+  @media (max-width: 999px) {
+    #root2 {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+
+  body {
+    
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 0;
+    font-family: Lato, sans-serif;
+    color: #222;
+    font-size: 0.9em;
+  }
+  footer {
+    flex: 0 0 170px;
+    padding: 10px;
+    color: #fff;
+    
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3em;
+    flex-wrap: wrap;
+    
+  }
+
+  #bcg {
+    background-color: black;
+    background-image: url(../images/castle.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 399px) {
+    footer {    flex: 1 0 200px;  margin-bottom:1em;}
+   .f2{ margin: auto; padding-bottom: 1.2em; margin-top: 15px;}
+    .f1 {margin-top: 2em;}
+  }
+
+  .f1 {
+    display: flex;
+    flex: 0 0 190px;
+  }
+
+  .f2 {
+    display: flex;
+    flex: 0 0 190px;
+    
+  }
+
+  #nightWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1.2em;
+    justify-content: space-around;
+  }
+  .nightImg {align-self: center;}
+  .nightText {align-self: center;}
+
+ aside {
+   
+    flex: 0 0 40px;
+    display: flex; /*Now a flex-container too*/
+  
+    
+    flex-direction: column; /*stack icons vertically*/
+  
+    
+    /*since direction is changed, this works on the vertical direction*/
+    justify-content: space-around;   
+
+    
+    align-items: center; /*direction is changed! This affects the horizontal direction. Places Icons in the center*/
+  
+   
+     background-color: #f2f2f2; /*make me pretty*/
+  }
+     aside i.fa {
+        font-size: 0.9em;  /*font size for the icons*/
+  }
+
+
+  .content {
+    display: flex;
+    flex: 1 1 auto; /*this makes sure the section grows to fill the entire available space and shrinks too*/
+    flex-direction: column;
+}
+
+
+.music-head {
+  flex: 0 0 280px; /*Same memo, don't grow or shrink - stay at 280px*/
+ display: flex;  
+ padding: 40px;
+ background-color: #4e4e4e;
+}
+.music-list {
+   display: flex;
+   flex-direction: column;
+   flex: 1 0 auto;
+   list-style-type: none;
+   padding: 5px 10px 0px;
+}
+
+li {
+  display: flex; /*Paragraphs are now displayed on one line*/
+  padding: 0 20px; /*Some breahing space*/
+  min-height: 50px;
+}
+li p {
+  flex: 0 0 25%; /*This is the sweet sauce*/
 }

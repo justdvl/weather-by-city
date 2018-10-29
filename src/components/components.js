@@ -25,11 +25,11 @@ const Input = styled.input`
 
 
 const Title = styled.h1`
-    margin-top:2em; padding-top: 1em; padding-bottom: 1em; 
+   
     background-color: white;
     text-align: center;
     color: ${props => props.primary ? 'blue' : 'black'}
-    ${media.big `margin-top: 0em;`}
+    
    
 
 `;
@@ -71,16 +71,14 @@ height: auto;`}
 `
 
 const WeatherImage = styled.div `
-float:left;
-width: 25%;
+
 ${media.big`width: 30%;`}
 ${media.medium`width: 50%;`}
 ${media.small`width: 100%; height: auto;`}
 `
 
 const Time = styled.div `
-float: right;
-width: 25%;
+
 padding-right:15px;
 ${media.big`width: 30%;`}
 ${media.medium`width: 50%;`}
@@ -101,7 +99,12 @@ ${media.small`width: 100%; height: auto;`}
 
 const ClockContainer = styled.div `
 
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align:center;
 padding-top:22px;
+color: #bbb;
 ${media.small`width: 100%; height: auto;`}
 `
 const ClockComponent = styled.div `
@@ -124,19 +127,21 @@ ${media.small`margin: 0 auto; float: none`}
 `
 
 const HumidityComponent = styled.div `
-
+position: relative;
 `
 
 const HumidityText = styled.div `
-/*width : 200px;*/
+width : 200px;
 text-align : "left";
 padding-left : 12px;
 opacity : 0.9;
 font-size: 19px;
 position : absolute;
 bottom : 2px;
-z-index:20;
-${media.small`color: white; opacity:1; font-weight:777`}
+z-index:2;
+
+
+${media.small`color: white; opacity:1; `}
 `
 
 const HumidityGraph = styled.div `
@@ -149,6 +154,7 @@ background-position: 50% 50%;
 overflow: hidden;
 position :absolute;
 bottom:0px;
+z-index:1;
 `
 
 const DayNightWrapper = styled.div `
@@ -215,5 +221,10 @@ position:relative;
 padding-bottom:13px;
 `
 
+const WelcomeHome = styled.div `
+text-shadow: 0 0 5px #111, 0 0 10px #111, 0 0 15px #fff, 0 0 20px #111, 0 0 35px #111;
+font-size:1.4em;
+text-align: center;
+`
 
-export {Body, Input, Title, Main, ResponseBody, WeatherTime, WeatherImage, Time, ResponseText, WeatherImageContainer, WeatherImageWrapper, WeatherImg, ClockContainer, ClockComponent, HumidityWrapper, HumidityComponent, HumidityText, HumidityGraph, DayNightWrapper, DayNightComponent, Footer, WindWrapper, WindDirectionImg, SectionBlack}
+export {WelcomeHome, Body, Input, Title, Main, ResponseBody, WeatherTime, WeatherImage, Time, ResponseText, WeatherImageContainer, WeatherImageWrapper, WeatherImg, ClockContainer, ClockComponent, HumidityWrapper, HumidityComponent, HumidityText, HumidityGraph, DayNightWrapper, DayNightComponent, Footer, WindWrapper, WindDirectionImg, SectionBlack}

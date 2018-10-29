@@ -33,7 +33,7 @@ class Wind extends Component {
 
             return (
             <WindWrapper> 
-                <p className="neon"> {windDirection} wind 
+                <p className="neon white"> {windDirection} wind 
                 <WindDirectionImg alt = "wind direction" deg = {weatherData.wind.deg} src={arrowUp} /> 
                 | {weatherData.wind.speed} m/s</p>
             </WindWrapper>
