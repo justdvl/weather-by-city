@@ -24,7 +24,7 @@ const Input = styled.input`
     margin: 0.3em;
     color: ${props => props.inputColor || theme1.dark};
     background: ${theme1.backgroundLight};
-    height: 1em;
+    height: 1.3em;
     border-radius: 3px;
     width: ${({ sizeValue }) => sizeValue + 'px'};
     text-transform:capitalize; 
@@ -33,7 +33,6 @@ const Input = styled.input`
 
 const Title = styled.h1`
    
-    background-color: white;
     text-align: center;
     color: ${props => props.primary ? 'blue' : 'black'}
 
@@ -45,6 +44,8 @@ const Header = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 100%;
+    background: #FBB242;
 `
 
 const Main = styled.div`
@@ -93,6 +94,7 @@ const ResponseWrapper = styled.div `
 
 const ClockContainer = styled.div `
     margin-top: 30px;
+    padding-top:15px;
     padding-right: 1em;
     align-self: flex-start;
     flex: 5 0 190px;
